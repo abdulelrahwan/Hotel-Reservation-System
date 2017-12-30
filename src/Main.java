@@ -181,8 +181,8 @@ public class Main {
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					int total = Integer.parseInt(textFieldEC.getText())+ (Hotel.costPerDay);
-					String query = "insert into Guest_info (First name,Last name,Room number,# of adults,# of children,Length of stay,Address,Extra charges,Total price,Phone_number) values(?,?,?,?,?,?,?,?,?,?)";
+					int total = Integer.parseInt(textFieldEC.getText())+ ((Hotel.costPerDay)*Integer.parseInt(textFieldLS.getText())); 
+					String query = "insert into Guest_info (First_name,Last_name,Room_number,Adults,Children,Len_of_stay,Address,Extra_charges,Total_price,Phone_number) values(?,?,?,?,?,?,?,?,?,?)";
 					PreparedStatement pst= connection.prepareStatement(query);
 					
 					pst.setString(1, textFieldFN.getText());
